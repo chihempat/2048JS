@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gridDisplay = document.querySelector('.grid');
   const scoreDisplay = document.querySelector('#score');
-  const resultDisplay = document.querySelector('#result');
+  const resultDisplay = document.querySelector('.result');
   const width = 4;
   let squares = [];
   let score = 0;
@@ -34,9 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[randomNumber].innerHTML = 2;
         changeColor();
       } else {
-        generate();
         changeColor();
+        generate();
       }
+
       //checkForFull();
     } catch (e) {
       if (e instanceof RangeError) {
@@ -162,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //assign keycodes
   function control(e) {
+      changeColor();
       if (e.keyCode === 39) {
         keyRigth();
       } else if (e.keyCode === 37) {
@@ -268,30 +270,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let changeColor = () => {
       for (let i = 0; i < width * width; i++) {
+
+        let colors1= ["#f2fbff", "#daf4fe", "#c9effe", "#99e0ff", "#68d2ff", "#37c3ff", "#06b5ff", "#0095d4", "#0072a3", "#005072", "#002d41", "#000b10"];
+        let colors2 = ["#F3FBFC", "#D6F5F8", "#C4F0F7", "#B3E9F5", "#A2DFF2", "#8CE0E0", "#7BD8D2", "#6AC2C4", "#5BC0B6", "#4AB8A8", "#3A9E9E", "#2A7E7E", "#1A5E5E", "#0A3E3E", "#002626"];
+        let colors = ["#F3FBFC", "#DDF3F5", "#C3EBEF", "#9EDFE5", "#73D3DC", "#70C2DF", "#77ADE6", "#7D99ED", "#7E84F3", "#7E6CFB", "#3A9E9E", "#7254F4", "#6146D9", "#4F38BC", "#3E2DA5"];
+
+        if (squares[i].innerHTML < 256) {
+          squares[i].style.color = '#1C005C';
+        } else {
+            squares[i].style.color = '#FFF';
+        }
         if (squares[i].innerHTML == 0)
-          squares[i].style.backgroundColor = '#F3FBFC';
+          squares[i].style.backgroundColor = colors[0];
         else if (squares[i].innerHTML == 2)
-          squares[i].style.backgroundColor = '#DDF3F5';
+          squares[i].style.backgroundColor = colors[1];
         else if (squares[i].innerHTML == 4)
-          squares[i].style.backgroundColor = '#C3EBEF';
+          squares[i].style.backgroundColor = colors[2];
         else if (squares[i].innerHTML == 8)
-          squares[i].style.backgroundColor = '#9EDFE5';
+          squares[i].style.backgroundColor = colors[3];
         else if (squares[i].innerHTML == 16)
-          squares[i].style.backgroundColor = '#73D3DC';
+          squares[i].style.backgroundColor = colors[4];
         else if (squares[i].innerHTML == 32)
-          squares[i].style.backgroundColor = '#77ADE6';
-        else if (squares[i].innerHTML == 64)
-          squares[i].style.backgroundColor = '#7D99ED';
-        else if (squares[i].innerHTML == 128)
-          squares[i].style.backgroundColor = '#7E84F3';
-        else if (squares[i].innerHTML == 256)
-          squares[i].style.backgroundColor = '#7254F4';
-        else if (squares[i].innerHTML == 512)
-          squares[i].style.backgroundColor = '#6146D9';
-        else if (squares[i].innerHTML == 1024)
-          squares[i].style.backgroundColor = '#4F38BC';
-        else if (squares[i].innerHTML == 2048)
-          squares[i].style.backgroundColor = '#3E2DA5';
+          squares[i].style.backgroundColor = colors[5];
+        else if (squares[i].innerHTML == 64) {
+          squares[i].style.backgroundColor = colors[6];
+        }
+        else if (squares[i].innerHTML == 128) {
+          squares[i].style.backgroundColor = colors[7];
+        }
+        else if (squares[i].innerHTML == 256) {
+          squares[i].style.backgroundColor = colors[8];
+        }
+        else if (squares[i].innerHTML == 512) {
+          squares[i].style.backgroundColor = colors[9];
+        }
+        else if (squares[i].innerHTML == 1024){
+          squares[i].style.backgroundColor = colors[10];
+        }
+        else if (squares[i].innerHTML == 2048) {
+          squares[i].style.backgroundColor = colors[11];
+        }
         else
           changeColor();
 

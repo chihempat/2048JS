@@ -4,7 +4,6 @@
     width: 400px;
     height: 400px;
     background-color: #F3FBFC;
-
 }
 
 .grid div {
@@ -19,14 +18,22 @@
     font-family: Helvetica;
 }
 
-
-.score-container{
-    font-size: 3rem;
+.score-container {
+    font-size: 2rem;
 }
+
+.result {
+    font-size: 2rem;
+}
+
 body {
+    background-color: #d7fdf9;
+    padding: 30px;
     position: absolute;
     margin-left: 35%;
     margin-right: 35%;
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: normal;
+    font-family: 'Glacial Indifference', Helvetica, sans-serif;
 }
