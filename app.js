@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //assign keycodes
   function control(e) {
       changeColor();
+      checkForFull();
       if (e.keyCode === 39) {
         keyRigth();
       } else if (e.keyCode === 37) {
@@ -212,22 +213,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForFull() {
-      let zero = 0;
+      var zero = 0;
       for (let i = 0; i < 4 * 4; i++) {
-        if (testArray[i] == 0) {
+        if (squares[i].innerHTML == 0) {
             zero++;
         }
       }
       if (zero == 0) {
-        let same = 0;
+        var same = 0;
         for (let i = 0; i < 4 * 4; i++) {
           if (checkRigth(i) || checkLeft(i) || checkUp(i) || checkDown(i)) {
             same++;
           }
         }
           if (same == 0) {
-            console.log("Stop");
-            resultDisplay.innerHTML = "You Lose";
+            resultDisplay.innerHTML = "You Lose <br> Hit refress to start again!";
+            document.removeEventListener('keyup', control);
         }
       }
     }
@@ -236,32 +237,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     let checkRigth = (pos) => {
-      const val = testArray[pos];
-      if (pos % 4 != 0 && testArray[pos + 1] == val ) {
+      const val = squares[pos].innerHTML;
+      if (pos % 4 != 0 && typeof(squares[pos + 1]) != 'undefined' && squares[pos + 1].innerHTML == val ) {
         return true;
       } else {
         return false;
       }
     }
     let checkLeft = (pos) => {
-      const val = testArray[pos]
-      if (pos % 4 != 3 && testArray[pos - 1] == val) {
+      const val = squares[pos].innerHTML
+      if (pos % 4 != 3 && typeof(squares[pos - 1]) != 'undefined' && squares[pos - 1].innerHTML == val) {
         return true;
       } else {
         return false;
       }
     }
     let checkUp = (pos) => {
-      const val = testArray[pos];
-      if (pos > 4 && testArray[(pos - 4)] == val) {
+      const val = squares[pos].innerHTML;
+      if (pos > 4 && typeof(squares[pos - 4]) != 'undefined' && squares[pos - 4].innerHTML == val) {
         return true;
       } else {
         return false;
       }
     }
     let checkDown = (pos) => {
-      const val = testArray[pos];
-      if (pos < 12 && testArray[(pos + 4)] == val) {
+      const val = squares[pos].innerHTML;
+      if (pos < 12 && typeof(squares[pos + 4]) != 'undefined' && squares[pos + 4].innerHTML == val) {
         return true;
       } else {
         return false;
