@@ -161,13 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function control(e) {
       changeColor();
       checkForFull();
-      if (e.keyCode === 39) {
+      if (e.keyCode === 39 || e.keyCode === 68) {
         keyRigth();
-      } else if (e.keyCode === 37) {
+      } else if (e.keyCode === 37 || e.keyCode === 65) {
         keyLeft();
-      } else if (e.keyCode === 38) {
+      } else if (e.keyCode === 38 || e.keyCode === 87) {
         keyUp();
-      } else if (e.keyCode === 40) {
+      } else if (e.keyCode === 40 || e.keyCode === 83) {
         keyDown();
       }
 
@@ -201,9 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //check for 2048
     function checkForWin() {
       for (let i = 0; i < squares.length; i++) {
-        if (squares[i].innerHTML == 8) {
-          resultDisplay.innerHTML = "You won! 🎉 🎉";
-          document.addEventListener('keyup', control);
+        if (squares[i].innerHTML == 2048) {
+          resultDisplay.innerHTML = "You won! 🎉 🎉<br> Refresh or Continue";
         }
       }
     }
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
           if (same == 0) {
-            resultDisplay.innerHTML = "You Lost<br>Hit Refresh to start again 🙌";
+            resultDisplay.innerHTML = "You Lost<br>Hit Refresh to start again";
             document.removeEventListener('keyup', control);
         }
       }
