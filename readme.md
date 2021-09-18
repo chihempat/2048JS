@@ -1,1 +1,4 @@
-#2048 in JS
+#2048 in JS.
+
+
+![ss](/img/ss.png)
