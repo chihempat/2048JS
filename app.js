@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 4;
   let squares = [];
   let score = 0;
-  //create a playing board;
+  //create a playing boards;
 
   function createBoard() {
     for (let i = 0; i < width * width; i++) {
@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         changeColor();
       randomNumber = Math.floor(Math.random() * squares.length);
+      if (randomNumber > 16 && randomNumber < 0) {
+
+      }
       if (squares[randomNumber].innerHTML == 0) {
         squares[randomNumber].innerHTML = 2;
         changeColor();
@@ -206,62 +209,57 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    //check for loses
-    // function checkForFull() {
-    //   let zero = 0;
-    //   console.log("===>same1",same)
-    //   for (let i = 0; i < 4 * 4; i++) {
-    //           console.log("===>same2",same)
-    //     if (squares[i].innerHTML == 0) {
-    //         zero++;
-    //     }
-    //   }
-    //   if (zero == 0) {
-    //     console.log("it is full");
-    //   } else {
-    //       let same = 0;
-    //     for (let i = 0; i < 4 * 4; i++) {
-    //       if (checkRigth(i) || checkLeft(i) || checkUp(i) || checkDown(i)) {
-    //         same++;
-    //       }
-    //     }
-    //       if (same == 0) {
-    //         console.log("Stop");
-    //         resultDisplay.innerHTML = "You Lose";
-    //     }
-    //   }
-    // }
+    function checkForFull() {
+      let zero = 0;
+      for (let i = 0; i < 4 * 4; i++) {
+        if (testArray[i] == 0) {
+            zero++;
+        }
+      }
+      if (zero == 0) {
+        let same = 0;
+        for (let i = 0; i < 4 * 4; i++) {
+          if (checkRigth(i) || checkLeft(i) || checkUp(i) || checkDown(i)) {
+            same++;
+          }
+        }
+          if (same == 0) {
+            console.log("Stop");
+            resultDisplay.innerHTML = "You Lose";
+        }
+      }
+    }
 
 
 
 
     let checkRigth = (pos) => {
-      const val = squares[pos].innerHTM;
-      if (pos % 4 != 0 && squares[pos + 1].innerHTML == val ) {
+      const val = testArray[pos];
+      if (pos % 4 != 0 && testArray[pos + 1] == val ) {
         return true;
       } else {
         return false;
       }
     }
     let checkLeft = (pos) => {
-      const val = squares[pos].innerHTM;
-      if (pos % 4 != 3 && squares[pos - 1].innerHTML == val) {
+      const val = testArray[pos]
+      if (pos % 4 != 3 && testArray[pos - 1] == val) {
         return true;
       } else {
         return false;
       }
     }
     let checkUp = (pos) => {
-      const val = squares[pos].innerHTM;
-      if (pos > 4 && squares[(pos - 4)].innerHTML == val) {
+      const val = testArray[pos];
+      if (pos > 4 && testArray[(pos - 4)] == val) {
         return true;
       } else {
         return false;
       }
     }
     let checkDown = (pos) => {
-      const val = squares[pos].innerHTM;
-      if (pos < 12 && squares[(pos + 4)].innerHTML == val) {
+      const val = testArray[pos];
+      if (pos < 12 && testArray[(pos + 4)] == val) {
         return true;
       } else {
         return false;
