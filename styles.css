@@ -23,7 +23,8 @@
 }
 
 .result {
-    font-size: 2rem;
+    margin: 10px;
+    font-size: 1.5rem;
 }
 
 body {
@@ -34,6 +35,6 @@ body {
     margin-right: 35%;
     text-align: center;
     font-size: 4rem;
-    font-weight: normal;
-    font-family: 'Glacial Indifference', Helvetica, sans-serif;
+    font-weight: bold;
+    font-family: 'Quicksand',Helvetica, sans-serif;
 }

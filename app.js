@@ -25,11 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //generate a number randomly
   function generate() {
     try {
-        changeColor();
-      randomNumber = Math.floor(Math.random() * squares.length);
-      if (randomNumber > 16 && randomNumber < 0) {
-
-      }
+      changeColor();
+      let randomNumber = Math.floor(Math.random() * squares.length);
       if (squares[randomNumber].innerHTML == 0) {
         squares[randomNumber].innerHTML = 2;
         changeColor();
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         generate();
       }
 
-      //checkForFull();
     } catch (e) {
       if (e instanceof RangeError) {
         //resultDisplay.innerHTML = "You lose!";
@@ -205,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //check for 2048
     function checkForWin() {
       for (let i = 0; i < squares.length; i++) {
-        if (squares[i].innerHTML == 2048) {
-          resultDisplay.innerHTML = "You win!";
+        if (squares[i].innerHTML == 8) {
+          resultDisplay.innerHTML = "You won! 🎉 🎉";
           document.addEventListener('keyup', control);
         }
       }
@@ -227,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
           if (same == 0) {
-            resultDisplay.innerHTML = "You Lose <br> Hit refress to start again!";
+            resultDisplay.innerHTML = "You Lost<br>Hit Refresh to start again 🙌";
             document.removeEventListener('keyup', control);
         }
       }
