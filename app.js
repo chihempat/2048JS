@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   createBoard();
 
-
+function play() {
+  var audio = new Audio('https://soundcloud.com/marcinprzybylowicz/the-fields-of-ard-skellig');
+  audio.play();
+}
 
   //generate a number randomly
   function generate() {

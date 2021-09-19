@@ -10,4 +10,7 @@
 #### Font Used : [Quicksand](https://fonts.google.com/specimen/Quicksand)
 #### Hosted on : [Netlify](https://2048js.netlify.app/)
 
-![ss](/img/ss.png)
+<!-- ![ss](/img/ss.png){:width="50px"}
+![lost](/img/ss1.png){:width="50px"} -->
+<img src="./img/ss.png" width="300px" style="block:flex;">
+<img src="./img/ss1.png" width="300px" style="block:flex;">
